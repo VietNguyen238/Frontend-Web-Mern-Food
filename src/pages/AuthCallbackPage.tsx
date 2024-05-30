@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Auth0CallbackPage() {
+export default function AuthCallbackPage() {
   const navigate = useNavigate();
   const { user } = useAuth0();
   const { createUser } = useCreateUser();
