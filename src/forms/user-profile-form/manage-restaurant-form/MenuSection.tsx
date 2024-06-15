@@ -11,7 +11,7 @@ export default function MenuSection() {
     name: "menuItems",
   });
   return (
-    <div>
+    <div className='space-y-2'>
       <div>
         <h2 className='text-2xl font-bold'>Menu</h2>
         <FormDescription>
@@ -25,6 +25,7 @@ export default function MenuSection() {
           <FormItem className='flex flex-col gap-2'>
             {fields.map((_, index) => (
               <MenuItemInput
+                key={index}
                 index={index}
                 removeMenuItem={() => remove(index)}
               />

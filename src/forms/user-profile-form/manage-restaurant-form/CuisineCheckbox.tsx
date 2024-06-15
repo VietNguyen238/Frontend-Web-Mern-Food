@@ -14,7 +14,7 @@ export default function CuisineCheckbox({ cuisine, field }: Props) {
         <Checkbox
           className='bg-white'
           checked={field.value.includes(cuisine)}
-          onRateChange={(checked) => {
+          onCheckedChange={(checked) => {
             if (checked) {
               field.onChange([...field.value, cuisine]);
             } else {

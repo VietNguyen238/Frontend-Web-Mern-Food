@@ -1,10 +1,16 @@
-import { FormDescription, FormField, FormItem } from "@/components/ui/form";
+import {
+  FormDescription,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import { cuisineList } from "@/config/restaurant-options-config";
 import { useFormContext } from "react-hook-form";
 import CuisineCheckbox from "./CuisineCheckbox";
 
 export default function CuisinesSection() {
   const { control } = useFormContext();
+
   return (
     <div className='space-y-2'>
       <div>
@@ -19,10 +25,15 @@ export default function CuisinesSection() {
         render={({ field }) => (
           <FormItem>
             <div className='grid md:grid-cols-5 gap-1'>
-              {cuisineList.map((cuisineItem) => (
-                <CuisineCheckbox cuisine={cuisineItem} field={field} />
+              {cuisineList.map((cuisineItem, index) => (
+                <CuisineCheckbox
+                  key={index}
+                  cuisine={cuisineItem}
+                  field={field}
+                />
               ))}
             </div>
+            <FormMessage />
           </FormItem>
         )}
       />

@@ -18,11 +18,11 @@ export default function AppRoutes() {
         }
       />
       <Route path='/auth-callback' element={<AuthCallbackPage />} />
-      <Route path='/' element={<ProtectedRoute />}>
+      <Route element={<ProtectedRoute />}>
         <Route
           path='/user-profile'
           element={
-            <Layout showHero>
+            <Layout>
               <UserProfilePage />
             </Layout>
           }
@@ -30,7 +30,7 @@ export default function AppRoutes() {
         <Route
           path='/manage-restaurant'
           element={
-            <Layout showHero>
+            <Layout>
               <ManageRestaurantPage />
             </Layout>
           }

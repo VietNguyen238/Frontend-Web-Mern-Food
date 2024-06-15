@@ -19,11 +19,6 @@ export default function UsernameMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className='flex flex-col gap-2 rounded justify-between items-center bg-white p-5 '>
         <DropdownMenuItem>
-          <Link to='/user-profile' className='font-bold hover:text-orange-500'>
-            User Profile
-          </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem>
           <Link
             to='/manage-restaurant'
             className='font-bold hover:text-orange-500'
@@ -31,6 +26,12 @@ export default function UsernameMenu() {
             Manage Restaurant
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem>
+          <Link to='/user-profile' className='font-bold hover:text-orange-500'>
+            User Profile
+          </Link>
+        </DropdownMenuItem>
+
         <Separator />
         <DropdownMenuItem>
           <Button
