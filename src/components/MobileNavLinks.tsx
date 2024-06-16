@@ -7,6 +7,12 @@ export default function MobileNavLinks() {
   return (
     <div className='flex flex-col gap-4'>
       <Link
+        to='/manage-restaurant'
+        className='flex bg-white items-center font-bold hover:text-orange-500'
+      >
+        Manage Restaurant
+      </Link>
+      <Link
         to='/user-profile'
         className='flex bg-white items-center font-bold hover:text-orange-500'
       >
