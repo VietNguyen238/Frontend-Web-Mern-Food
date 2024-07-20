@@ -1,5 +1,5 @@
 import { CartItem } from "@/pages/DetailPage";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Restaurant } from "@/types";
 import { Separator } from "./ui/separator";
@@ -26,7 +26,7 @@ export default function OrderSummary({
     return (totalWithDelivery / 100).toFixed(2);
   };
   return (
-    <Card>
+    <>
       <CardHeader>
         <CardTitle className='text-2xl font-bold tracking-tight flex justify-between'>
           <span>Your Order</span>
@@ -60,6 +60,6 @@ export default function OrderSummary({
         </div>
         <Separator />
       </CardContent>
-    </Card>
+    </>
   );
 }

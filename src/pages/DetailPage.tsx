@@ -1,8 +1,10 @@
 import { useRestaurantRequest } from "@/api/RestaurantSearchApi";
+import CheckoutButton from "@/components/CheckoutButton";
 import MenuItem from "@/components/MenuItem";
 import OrderSummary from "@/components/OrderSummary";
 import RestaurantInfo from "@/components/RestaurantInfo";
-import { Card } from "@/components/ui/card";
+import { Card, CardFooter } from "@/components/ui/card";
+import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { MenuItems } from "@/types";
 import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 import { useState } from "react";
@@ -19,7 +21,10 @@ export default function DetailPage() {
   const { restaurantId } = useParams();
   const { restaurant, isLoading } = useRestaurantRequest(restaurantId);
 
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = sessionStorage.getItem(`cartItems-${restaurantId}`);
+    return storedCartItems ? JSON.parse(storedCartItems) : [];
+  });
 
   const addToCart = (menuItem: MenuItems) => {
     setCartItems((prevCartItems) => {
@@ -47,6 +52,11 @@ export default function DetailPage() {
         ];
       }
 
+      sessionStorage.setItem(
+        `cartItems-${restaurantId}`,
+        JSON.stringify(updatedCartItems)
+      );
+
       return updatedCartItems;
     });
   };
@@ -63,9 +73,14 @@ export default function DetailPage() {
   if (isLoading || !restaurant) {
     return "Loading...";
   }
+
+  const onCheckout = (userFormData: UserFormData) => {
+    console.log("userFormData", userFormData);
+  };
+
   return (
     <div className='flex flex-col gap-10'>
-      <AspectRatio ratio={16 / 5}>
+      <AspectRatio ratio={16 / 5} className='z-0'>
         <img
           src={restaurant.imageUrl}
           className='rounded-md object-cover h-full w-full'
@@ -90,6 +105,12 @@ export default function DetailPage() {
               cartItems={cartItems}
               removeFromCart={removeFromCart}
             />
+            <CardFooter>
+              <CheckoutButton
+                disabled={cartItems.length === 0}
+                onCheckout={onCheckout}
+              />
+            </CardFooter>
           </Card>
         </div>
       </div>
