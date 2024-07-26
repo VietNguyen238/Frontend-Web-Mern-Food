@@ -12,7 +12,7 @@ export type OrderStatus =
   | "paid"
   | "inProgress"
   | "outForDelivery"
-  | "Delivered";
+  | "delivered";
 
 export type Order = {
   _id: string;

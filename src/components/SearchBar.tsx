@@ -17,7 +17,7 @@ interface Props {
   onSubmit: (formData: SearchForm) => void;
   placeHolder: string;
   onReset?: () => void;
-  searchQuery: string;
+  searchQuery?: string;
 }
 
 export default function SearchBar({
