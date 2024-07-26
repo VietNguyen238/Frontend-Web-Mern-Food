@@ -30,7 +30,7 @@ export default function HomePage() {
             Order takeaway even faster!
           </span>
           <span>
-            Download the MernEats App for faster ordering and personaliesd
+            Download the MernFood App for faster ordering and personaliesd
             recommendations
           </span>
           <img src={appDownload} alt='appDownload' />

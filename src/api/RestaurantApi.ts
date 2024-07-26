@@ -157,7 +157,7 @@ export const useUpdateRestaurantOrder = () => {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(updateStatusOrderRequest.status),
+        body: JSON.stringify({ status: updateStatusOrderRequest.status }),
       }
     );
 

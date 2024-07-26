@@ -26,7 +26,7 @@ export default function MobileNav() {
               {user?.email}
             </span>
           ) : (
-            <span>Welcome to MernEats.com!</span>
+            <span>Welcome to MernFood!</span>
           )}
         </SheetTitle>
         <Separator />
